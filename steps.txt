@@ -1,0 +1,13 @@
+step1 git init
+step2 python -m venv venv
+step3 source ./venv/Scripts/activate
+step4 新增 .gitignore 和 .flaskenv 檔
+step5 pip install flask
+step6 pip install python-dotenv
+step7 新增 app.py 檔
+step8 編輯 app.py, 生成第一個路由, hello world
+step9 flask run
+step10 不使用 flask-restful, 建立 user_list, 然後練習 get 與 post
+step11 在 post 方法中加入過濾, 不讓帳號重複
+step12 再加入一個路由, 聆聽 delete, 在聆聽 put 方法
+step13 git add -A git commit -m "使用flask去實現一個API"
