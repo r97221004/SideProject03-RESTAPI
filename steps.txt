@@ -15,4 +15,9 @@ step13 git add -A git commit -m "使用flask去實現一個API"
 step14 pip install flask-restful
 step15 簡單寫一個 HelloWorld 與 HelloName 的例子
 step16 git add -A git commit -m "使用套件flask-restful寫一個簡單的HelloWorld API"
-
+-------------------------------------------------------------------------------------
+step17 先在 Postman 設計 API 的功能
+step18 實現 /users 的 GET 與 POST 方法
+step19 實現 /user/<string:uername> 的 GET、PUT、PATCH、DELETE 方法 (註: 這裡還沒教到如何判斷 email 或密碼是否合法, 之後會教)
+step20 git add -A git commit -m "使用套件flask-restful去操作CRUD"
+-------------------------------------------------------------------------------------
