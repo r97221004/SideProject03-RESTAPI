@@ -1,59 +1,20 @@
-from flask import Flask, jsonify, request
-
+from flask import Flask
+from flask_restful import Api, Resource
 
 app = Flask(__name__)
-
-user_list = [
-    {"username": "Matt", "password": "123"},
-    {"username": "Crystal", "password": "456"}
-]
+api = Api(app)
 
 
-
-@app.route('/')
-def index():
-    return "Hello, World!"
-
-
-@app.route('/users', methods = ['GET', 'POST'])
-def get_users():
-    if request.method == "POST":
-        user = request.get_json()
-        user_check = list(filter(lambda x: x['username'] == user['username'], user_list))
-        if not user_check: 
-            user_list.append(user)
-            return {"message": "user created."}, 201
-        else:
-            return {"message": "user exists."}
-
-    return jsonify(user_list)
+class HelloWorld(Resource):
+    def get(self):
+        return {"message": "Hello, World!"}
 
 
-@app.route("/user/<string:username>", methods = ["DELETE", "PUT"])
-def delete_user(username):
-    user_find = None
-    for user in user_list:
-        if user['username'] == username:
-            user_find = user
-
-    if not user_find:
-        return {"message":"user not found" }
-
-    
-    if request.method == "DELETE":
-        user_list.remove(user_find)
-        return {"message": "user deleted"}
-    
-    elif request.method == "PUT":
-        user_list.remove(user_find)
-        user_list.append({
-            "username": username,
-            "password": request.get_json()["password"]
-        })
-
-        return {"message": "user password updated"}
+class HelloName(Resource):
+    def get(self, name):
+        return {"message": f"Hello, {name}!"}
 
 
 
-
-
+api.add_resource(HelloWorld, "/helloworld")
+api.add_resource(HelloName, "/helloname/<string:name>")

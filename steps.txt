@@ -11,3 +11,8 @@ step10 不使用 flask-restful, 建立 user_list, 然後練習 get 與 post
 step11 在 post 方法中加入過濾, 不讓帳號重複
 step12 再加入一個路由, 聆聽 delete, 在聆聽 put 方法
 step13 git add -A git commit -m "使用flask去實現一個API"
+-------------------------------------------------------------------------------------
+step14 pip install flask-restful
+step15 簡單寫一個 HelloWorld 與 HelloName 的例子
+step16 git add -A git commit -m "使用套件flask-restful寫一個簡單的HelloWorld API"
+
