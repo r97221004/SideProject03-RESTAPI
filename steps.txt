@@ -21,3 +21,21 @@ step18 實現 /users 的 GET 與 POST 方法
 step19 實現 /user/<string:uername> 的 GET、PUT、PATCH、DELETE 方法 (註: 這裡還沒教到如何判斷 email 或密碼是否合法, 之後會教)
 step20 git add -A git commit -m "使用套件flask-restful去操作CRUD"
 -------------------------------------------------------------------------------------
+step21 第一次代碼重構, 把 app.py 升級成 package Hotel, 把 Resource 移動到自己的 package resource, 記得更新 .flaskenv 與 Flask("Hotel")
+step22 使用 Workbench 練習操作 sql-demo.sql
+step23 pip install flask-sqlalchemy 跟擴展 app
+step24 建立 model 的 package, 且建立 table UserModel
+step25 第二次代碼重構, 使用工廠函數 create_app()
+step26 pip install flask-migrate, 使用 migrate = Migrate(app, db) 擴展
+step27 在生成資料庫跟資料表前, 要把 table import 進來 __init__.py 構造文件, 且要注意放置的位置要在 db 之後
+step28 查看 flask db --help
+step29 flask db init(資料庫初始化) -> flask db migrate(查看新增項目, 且新增版本) -> flask db upgrade(轉換版本)
+step30 要使用 Mysql 要先 pip install pymysql
+step31 輸入 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://帳號:密碼@localhost:3306/資料庫', 啟動前要先在 Mysql 裡面建立對應的資料庫
+step32 因為已經有了 migrations 的資料夾跟版本, 所以不需要在 flask db init, 可以直接 flask db upgrade
+step33 觀看 sqlalchemy 的插入、讀取、修改、刪除, 且在 UserModel 的 table 中加入 __repr__ 函數
+step34 因為現在要在 resource 裡面引入 model, 所以 __init__.py 與 resource 的 user.py 檔的配置要稍微修改。還需要在 resource 的 user.py 中引入 db
+step35 先修改 UserList 的 get 與 User 的 get。 先在 UserModel 裡加入 as_dict() 方法, 再開始修改
+step36 再修改 UserList 的 post 與 User 的 put、patch、delete 方法
+step37 git add -A git commit -m "使用套件flask-sqlalchemy去操作CRUD"
+-----------------------------------------------------------------------------------------
