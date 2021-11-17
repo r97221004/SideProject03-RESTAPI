@@ -51,3 +51,13 @@ step45 回到 __init__.py 檔註冊 Login 資源
 step46 使用 Token(), 在 resource 的 UserList 類中的 get 方法加入 Token 驗證
 step47 git add -A git commit -m "使用套件 pyjwt 去實現 Token 的認證"
 -----------------------------------------------------------------------------------------
+step48 觀看 flask_jwt 的使用
+step49 pip install flask-jwt
+step50 參觀 flask_jwt 的官網, 看看 configuration options 有哪些
+step51 先在 config.py 檔中加入 SECRET_KEY = "flask123" 與 JWT_EXPIRATION_DELTA = timedelta(seconds=300)
+step52 編輯 UserModel 加入 authenticate() 與 identity() 方法
+step52 編輯 __init__.py 建構文件 擴展 JWT(None, UserModel.authenticate, UserModel.identity), 且 login.py 可以刪掉
+step53 也可以在 resource 資料夾內把 UserList 內的之前的 Jwt 用法刪掉, 直接改用裝飾器 @jwt_required(), 只要有這個裝飾器, 都要帶 Token
+step54 又再 config.py 檔中加入更更多 configuration, 像 JWT_AUTH_URL_RULE = "/auth/login" 與 JWT_AUTH_HEADER_PREFIX = "FLASK"
+----------------------------------------------------------------------------------------------------
+step55 git add -A git commit -m "使用套件 flask-jwt 去實現 Token 的認證"

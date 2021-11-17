@@ -1,6 +1,7 @@
 from flask_restful import Resource, reqparse, abort, request
 from flask import current_app
-import jwt
+from flask_jwt import jwt_required
+
 from Hotel import db
 from Hotel.model.user import UserModel 
 
@@ -11,21 +12,8 @@ user_list = [
 
 
 class UserList(Resource):
+    @jwt_required()
     def get(self):
-        token = request.headers.get("Authorization")
-        try:
-            jwt.decode(
-                token,
-                current_app.config.get("SECRET_KEY"),
-                algorithms = "HS256"
-            )
-        except jwt.ExpiredSignatureError:
-            # the token is expired, return an error string
-            return {"message": "Expired token. Please to get a new token."}
-        except jwt.InvalidTokenError:
-            # the token is invalid, return an error string
-            return {"message": "Invalid token. Please register or login."}
-            
         users = UserModel.query.all()
         return [ user.as_dict() for user in users]
 
