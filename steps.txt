@@ -39,3 +39,15 @@ step35 先修改 UserList 的 get 與 User 的 get。 先在 UserModel 裡加入
 step36 再修改 UserList 的 post 與 User 的 put、patch、delete 方法
 step37 git add -A git commit -m "使用套件flask-sqlalchemy去操作CRUD"
 -----------------------------------------------------------------------------------------
+step38 第三次代碼重構, 建立 config.py 檔, 把 app.config 有關的移動到 config.py 檔寫成 class, 再用 app.config.from_object 導入
+step39 在 UserModel 加入 set_password() 與 check_password() 方法
+step40 觀看 password 的 hash 實現
+step41 修改 resource 的 user.py, 把跟密碼有關的都用 set_password() 修改
+step42 觀看 Token認證, JWT Token 的介紹
+step43 pip install pyjwt 
+stpe43 獲取 Token, 首先先在 UserModel 裡新增一個方法 generate_token(), 記得到 config.py 設置 SECRET_KEY
+step44 在 resource 裡面新增 auth.py 且加入 Login 資源
+step45 回到 __init__.py 檔註冊 Login 資源
+step46 使用 Token(), 在 resource 的 UserList 類中的 get 方法加入 Token 驗證
+step47 git add -A git commit -m "使用套件 pyjwt 去實現 Token 的認證"
+-----------------------------------------------------------------------------------------
