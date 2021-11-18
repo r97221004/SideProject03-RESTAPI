@@ -8,6 +8,8 @@ from flask_jwt import JWT
 db = SQLAlchemy()
 
 from Hotel.model.user import UserModel
+from Hotel.model.tweet import TweetModel
+from Hotel.resource.tweet import Tweet
 from Hotel.resource.user import User, UserList
 from Hotel.config import Config
 
@@ -23,6 +25,6 @@ def create_app():
 
     api.add_resource(UserList, "/users")
     api.add_resource(User, "/user/<string:username>")
+    api.add_resource(Tweet, "/tweets/<string:username>")
     
-
     return app

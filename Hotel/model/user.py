@@ -8,6 +8,7 @@ class UserModel(db.Model):
     username = db.Column(db.String(64), unique = True)
     password_hash = db.Column(db.String(128))
     email = db.Column(db.String(64))
+    tweets = db.relationship('TweetModel', back_populates = 'user')
 
     def __repr__(self):
         return f"id: {self.id}, username: {self.username}"

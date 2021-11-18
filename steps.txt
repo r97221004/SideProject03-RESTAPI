@@ -64,3 +64,12 @@ step55 git add -A git commit -m "使用套件 flask-jwt 去實現 Token 的認�
 step56 第四次代碼重構, 在 model 的 user.py 中加入 get_by_username、add、update、delete、get_by_id 方法, 且更新 resource 的 user.py 檔, 使跟 db 無關
 step57 git add -A git commit -m "代碼重構"
 ------------------------------------------------------------------------------------------------------
+step58 在 model 內加入新的檔案 tweet.py 且新增 table Tweet, 這樣 UserModle 與 Tweet 就是一對多的關係
+step59 編輯 __init__.py 檔, 把 table Tweet 加進來, 也就是 from Hotel.model.tweet import Tweet
+step60 觀看 flask shell 的 table 測試
+step61 在 resource 資料夾內加入 tweet.py 檔, 編寫 Tweet 資源, 加入 get 與 post 方法
+step62 編輯 __init__.py 檔, 幫資源 Tweet 註冊, api.add_resource(Tweet, "/tweet/<string:username>")
+step64 pip install python-dateutil, 要用來把 tweet 出來的世界協調時間當地化
+step65 在 resource 資料夾中的 tweet.py 檔中, 幫 get 與 post 方法加入權限認證
+step66 git add -A git commit -m "加入tweet資源"
+--------------------------------------------------------------------------------------------------------
