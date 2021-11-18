@@ -59,5 +59,8 @@ step52 編輯 UserModel 加入 authenticate() 與 identity() 方法
 step52 編輯 __init__.py 建構文件 擴展 JWT(None, UserModel.authenticate, UserModel.identity), 且 login.py 可以刪掉
 step53 也可以在 resource 資料夾內把 UserList 內的之前的 Jwt 用法刪掉, 直接改用裝飾器 @jwt_required(), 只要有這個裝飾器, 都要帶 Token
 step54 又再 config.py 檔中加入更更多 configuration, 像 JWT_AUTH_URL_RULE = "/auth/login" 與 JWT_AUTH_HEADER_PREFIX = "FLASK"
-----------------------------------------------------------------------------------------------------
 step55 git add -A git commit -m "使用套件 flask-jwt 去實現 Token 的認證"
+------------------------------------------------------------------------------------------------------
+step56 第四次代碼重構, 在 model 的 user.py 中加入 get_by_username、add、update、delete、get_by_id 方法, 且更新 resource 的 user.py 檔, 使跟 db 無關
+step57 git add -A git commit -m "代碼重構"
+------------------------------------------------------------------------------------------------------

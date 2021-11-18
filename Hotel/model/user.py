@@ -21,9 +21,34 @@ class UserModel(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def add(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    @staticmethod
+    def get_by_username(username):
+        user = UserModel.query.filter(UserModel.username == username).first()
+        return user
+
+    @staticmethod
+    def get_by_id(user_id):
+        user = UserModel.query.filter(UserModel.id == user_id).first()
+        return user
+
+    @staticmethod
+    def get_user_list():
+        return UserModel.query.all()
+
     @staticmethod
     def authenticate(username, password):
-        user = UserModel.query.filter(UserModel.username == username).first()
+        user = UserModel.get_by_username(username)
         if user:
             # check password
             if user.check_password(password):
@@ -32,5 +57,5 @@ class UserModel(db.Model):
     @staticmethod
     def identity(payload):
         user_id = payload["identity"]
-        user = UserModel.query.filter(UserModel.id == user_id).first()
+        user = UserModel.get_by_id(user_id)
         return user
