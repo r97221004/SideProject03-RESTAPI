@@ -73,3 +73,8 @@ step64 pip install python-dateutil, 要用來把 tweet 出來的世界協調時�
 step65 在 resource 資料夾中的 tweet.py 檔中, 幫 get 與 post 方法加入權限認證
 step66 git add -A git commit -m "加入tweet資源"
 --------------------------------------------------------------------------------------------------------
+step67 pip install cryptography, 不然連接 MySQL 時會有以下的例外產生, 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+step68 加入權限細分, 比如在操作 post /tweets/Crysyal 時, 你所帶的 Token 的帳號要是跟 Crystal 一樣 
+step69 幫我們 /user/<username> 的 DELETE、PUT、PATCH 加上權限再細分, 除了 post /users 不用權限, 其他的先 @jwt_required() 就好
+step70 git add -A git commit -m "JWT Token 權限細分"
+---------------------------------------------------------------------------------------------------------

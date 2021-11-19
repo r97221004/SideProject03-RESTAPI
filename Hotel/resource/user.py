@@ -1,12 +1,7 @@
 from flask_restful import Resource, reqparse, abort, request
 from flask import current_app
-from flask_jwt import jwt_required
+from flask_jwt import jwt_required, current_identity
 from Hotel.model.user import UserModel 
-
-user_list = [
-    {"username": "Crystal", "password": "123", "email": "crystal@gmail.com"},
-    {"username": "Matt", "password": "456", "email": "matt@gmail.com"}
-]
 
 
 class UserList(Resource):
@@ -14,6 +9,7 @@ class UserList(Resource):
     def get(self):
         users = UserModel.get_user_list()
         return [ user.as_dict() for user in users]
+
 
     def post(self):
         parser = reqparse.RequestParser()
@@ -32,14 +28,18 @@ class UserList(Resource):
 
 
 class User(Resource):
+    @jwt_required()
     def get(self, username):
         user = UserModel.get_by_username(username)
         if user:
             return user.as_dict()
         return  abort(404, message = "user not found")
 
-
+    @jwt_required()
     def put(self, username):
+        if current_identity.username != username:
+            return {"message": "Please use the right token."}
+
         parser = reqparse.RequestParser() 
         parser.add_argument("password", type = str, help = "password is required", required = True)
         parser.add_argument("email", type = str, help = "email is required", required = True)
@@ -56,8 +56,11 @@ class User(Resource):
         user.add()
         return user.as_dict(), 201
 
-
+    @jwt_required()
     def patch(self, username):
+        if current_identity.username != username:
+            return {"message": "Please use the right token."}
+
         parser = reqparse.RequestParser() 
         parser.add_argument("password", type = str)
         parser.add_argument("email", type = str)
@@ -75,8 +78,10 @@ class User(Resource):
             user.update()
             return user.as_dict()
 
-
+    @jwt_required()
     def delete(self, username):
+        if current_identity.username != username:
+            return {"message": "Please use the right token."}
         user = UserModel.get_by_username(username)
         if not user:
             abort(404, messsage = "user not found")

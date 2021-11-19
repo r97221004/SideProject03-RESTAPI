@@ -1,7 +1,7 @@
 from flask_restful import Resource, reqparse
 from Hotel.model.user import UserModel
 from Hotel.model.tweet import TweetModel
-from flask_jwt import jwt_required
+from flask_jwt import jwt_required, current_identity
 
 
 class Tweet(Resource):
@@ -14,6 +14,9 @@ class Tweet(Resource):
 
     @jwt_required()
     def post(self, username):
+        if current_identity.username != username:
+            return {"message": "Please use the right token."}
+            
         parser = reqparse.RequestParser()
         parser.add_argument("body", type = str, help = "body is required.", required = True)
         data = parser.parse_args()
