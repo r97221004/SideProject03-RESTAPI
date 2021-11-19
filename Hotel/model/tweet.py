@@ -2,6 +2,7 @@ from datetime import datetime, tzinfo
 from dateutil import tz
 from dateutil.tz import tzlocal
 from Hotel import db
+from Hotel.model.base import Base
 
 
 # get local time zone name
@@ -10,7 +11,7 @@ from_zone = tz.gettz('UTC') # UTC 時區
 to_zone = tz.gettz(tz_name) # 當地時區
 
 
-class TweetModel(db.Model):
+class TweetModel(Base):
     id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey('user_model.id')) # 記住後面的寫法, 要的是 table 的名字, 不是 Class
     body = db.Column(db.String(140))
@@ -27,6 +28,3 @@ class TweetModel(db.Model):
         t['created_at'] = t['created_at'].isoformat()  # 要加這個時間才會被序列化, 會把 datetime 類型轉乘字串
         return t
     
-    def add(self):
-        db.session.add(self)
-        db.session.commit()
