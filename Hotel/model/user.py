@@ -11,6 +11,7 @@ class UserModel(Base):
     email = db.Column(db.String(64))
     from_admin = db.Column(db.Boolean, default = False)
     tweets = db.relationship('TweetModel', back_populates = 'user', cascade = "all, delete-orphan") # collection # 聯級操作放在 collection 的一方
+    rooms = db.relationship("RoomModel", back_populates = "user")
 
     def __repr__(self):
         return f"id: {self.id}, username: {self.username}"

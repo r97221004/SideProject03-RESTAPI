@@ -10,6 +10,8 @@ db = SQLAlchemy()
 
 from Hotel.model.user import UserModel
 from Hotel.model.tweet import TweetModel
+from Hotel.model.style import StyleModel
+from Hotel.model.room import RoomModel
 from Hotel.resource.tweet import Tweet, TweetList
 from Hotel.resource.user import User, UserList
 from Hotel.config import Config

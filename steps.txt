@@ -94,3 +94,9 @@ step79 在 Model 的 user.py 與 tweet.py 加入 cascade (級聯操作), 只要�
 step80 不需要再 flask migrate 跟 flask upgrade
 step81 git add -A git commit -m "新增 TweetList 資源, 與加入 cascade 級聯操作"
 ----------------------------------------------------------------------------------------------------------
+step82 在 model 新增 style.py 檔, 加入 class StyleModel
+step83 在 model 新增 room.py 檔, 加入 class RoomModel
+step84 注意 StyleModel   1 <--------->多 RoomModle 多 <----------------> 1 UserModel 1 <---------------->多 TweetModel
+step84 在 __init__.py 構造文件 import StyleModel 與 RoomModel 進來
+step85 flask db migrate -> flask db upgrade
+step86 git add -A git commit -m "新增 StyleModel 與 RoomModel"
