@@ -88,3 +88,9 @@ step76 第五次代碼重購, 因為 model 裡面的 class 裡面的方法很多
 step77 在 model 新增 base.py 檔, 把一樣的方法移動到 Base, 然後 User 跟 Tweet 換繼承 Base
 step78 git add -A git commit -m "代碼重購"
 ----------------------------------------------------------------------------------------------------------
+step77 在 resource 的 tweet.py 檔新增資源 TweetList, 可以拿到全部留言
+step78 在 __init__.py 構造文件註冊資源 TweetList, 我們這個資源目前沒加權限, 不代 Token 也可以 GET
+step79 在 Model 的 user.py 與 tweet.py 加入 cascade (級聯操作), 只要帳號被刪掉, 跟他有關的留言也會跟這被刪除, 注意 cascade 該放的地方
+step80 不需要再 flask migrate 跟 flask upgrade
+step81 git add -A git commit -m "新增 TweetList 資源, 與加入 cascade 級聯操作"
+----------------------------------------------------------------------------------------------------------

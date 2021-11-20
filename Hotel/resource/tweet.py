@@ -4,6 +4,13 @@ from Hotel.model.tweet import TweetModel
 from flask_jwt import jwt_required, current_identity
 
 
+
+class TweetList(Resource):
+    def get(self):
+        tweets = TweetModel.get_tweet_list()
+        return [t.as_dict() for t in tweets]
+
+
 class Tweet(Resource):
     @jwt_required()
     def get(self, username):
