@@ -4,6 +4,7 @@ from flask_jwt import jwt_required, current_identity
 from Hotel.model.user import UserModel 
 
 
+
 class UserList(Resource):
     @jwt_required()
     def get(self):
