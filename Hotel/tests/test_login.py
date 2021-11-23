@@ -1,28 +1,8 @@
 import json
-import unittest
-
-from werkzeug.datastructures import Headers
-from Hotel import create_app, db
+from Hotel.tests.base import TestBase 
 
 
-
-class TestLogin(unittest.TestCase):
-    def setUp(self):
-        self.app = create_app(config_name = 'testing')
-        self.client = self.app.test_client
-        self.user_data = {
-            "username": "test",
-            "password": "test123",
-            "email": "test@test.com"
-        }
-
-        with self.app.app_context():
-            db.create_all()
-    
-    def tearDown(self):
-        with self.app.app_context():
-            db.session.remove()
-            db.drop_all()
+class TestLogin(TestBase):
 
     def test_login(self):
         url = "/users"

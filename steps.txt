@@ -125,3 +125,5 @@ step104 新增且編輯 test_tweet.py
 step105 python -m unitest discover
 step106 git add -A git commit -m "加入單元測試"
 -----------------------------------------------------------------------------------------------------------
+step107 第七次代碼重構, 在 tests 資料夾 新增 base.py檔, 在裡面新增 Base 類, 再讓大家繼承
+step105 python -m unitest discover
