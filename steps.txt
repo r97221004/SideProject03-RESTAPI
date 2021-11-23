@@ -113,3 +113,15 @@ step94 git add -A git commit -m "新增 Reservation 類與 Room 類"
 -----------------------------------------------------------------------------------------------------------
 step95 第六次代碼重構, 重構 config.py 檔, 再修改 __init__.py 檔
 step96 git add -A git commit -m "第六次代碼重構"
+-----------------------------------------------------------------------------------------------------------
+step97 新增 tests 的包, 並在裡面加入 __init__.py 檔
+step98 新增與編輯 test_user_list.py, 先完成 test_user_create() 方法
+step99 python -m unitest discover
+step100 新增且編輯 test_login.py
+step101 回來 test_user_list.py, 完成 test_user_get() 方法
+step102 新增與編輯 test_user.py
+step103 python -m unitest discover
+step104 新增且編輯 test_tweet.py
+step105 python -m unitest discover
+step106 git add -A git commit -m "加入單元測試"
+-----------------------------------------------------------------------------------------------------------
