@@ -103,7 +103,9 @@ step86 git add -A git commit -m "新增 StyleModel 與 RoomModel"
 ----------------------------------------------------------------------------------------------------------
 step87 在 resource 資料夾新增 style.py 檔, 且加入 StyleList 類, 並在 __init__.py 上註冊
 step88 在 resource 資料夾新增 room.py 檔, 且加入 RoomList 類, 並在 __init__.py 上註冊
-step89 在 room.py 檔中加入 Room 類, 並在 __init__.py 上註冊
+step89 在 room.py 檔中加入 RoomStyleList 類, 並在 __init__.py 上註冊
 step90 為 StyleList 與 RoomList 資源的方法加入權限
 step91 git add -A git commit -m "在 resource 資料夾加入 style.py 與 room.py 檔"
 -----------------------------------------------------------------------------------------------------------
+step92 在 resource 資料夾新增 reservation.py 檔, 且加入 Reservation 類, 並在 __init__.py 上註冊
+step93 在 resource 資料夾中的 room.py 檔中加入 Room 類, 並在 __init__.py 上註冊

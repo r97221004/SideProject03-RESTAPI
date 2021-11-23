@@ -19,8 +19,12 @@ class RoomModel(Base):
 
     @staticmethod
     def get_by_name(name):
-        room = RoomModel.query.filter(RoomModel.name == name).first()
-        return room
+        return RoomModel.query.filter(RoomModel.name == name).first()
+        
 
+    @staticmethod
+    def get_by_user_id(id):
+        return RoomModel.query.filter(RoomModel.user_id_now == id).all()
+        
 
     
