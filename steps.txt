@@ -109,3 +109,7 @@ step91 git add -A git commit -m "在 resource 資料夾加入 style.py 與 room.
 -----------------------------------------------------------------------------------------------------------
 step92 在 resource 資料夾新增 reservation.py 檔, 且加入 Reservation 類, 並在 __init__.py 上註冊
 step93 在 resource 資料夾中的 room.py 檔中加入 Room 類, 並在 __init__.py 上註冊
+step94 git add -A git commit -m "新增 Reservation 類與 Room 類"
+-----------------------------------------------------------------------------------------------------------
+step95 第六次代碼重構, 重構 config.py 檔, 再修改 __init__.py 檔
+step96 git add -A git commit -m "第六次代碼重構"

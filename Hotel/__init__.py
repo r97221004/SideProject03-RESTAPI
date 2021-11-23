@@ -6,8 +6,6 @@ from flask_jwt import JWT
 import click
 
 
-
-
 db = SQLAlchemy()
 
 from Hotel.model.user import UserModel
@@ -20,12 +18,14 @@ from Hotel.resource.style import StyleList
 from Hotel.resource.room import RoomStyleList, RoomList, Room
 from Hotel.resource.reservation import Reservation
 from Hotel.config import Config
+from Hotel.config import app_config
 
 jwt = JWT(None, UserModel.authenticate, UserModel.identity)
 
-def create_app():
+
+def create_app(config_name = "development"):
     app = Flask("Hotel")   
-    app.config.from_object(Config)
+    app.config.from_object(app_config[config_name])
     api = Api(app)
     migrate = Migrate(app, db)
     db.init_app(app)
