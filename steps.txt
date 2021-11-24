@@ -154,5 +154,7 @@ step205 git add -a git commit -m "更新程式碼"
 step206 更新 config.py, 加入 PROPAGATE_EXCEPTIONS=True
 step205 git add -a git commit -m "更新程式碼"
 ----------------------------------------------------------------------
+step206 在 heroku 上用 with app.app_context():的方式加入管理員
+step207 git add -A git commit -m '在 heroku 加入管理員'
 
 
