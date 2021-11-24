@@ -150,5 +150,9 @@ step203 from Hotel import db, create_app
             db.create_all()
 step204 更新 config.py
 step205 git add -a git commit -m "更新程式碼"
+-----------------------------------------------------------------------
+step206 更新 config.py, 加入 PROPAGATE_EXCEPTIONS=True
+step205 git add -a git commit -m "更新程式碼"
+----------------------------------------------------------------------
 
 

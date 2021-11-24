@@ -8,6 +8,7 @@ class Config:
     JWT_EXPIRATION_DELTA = timedelta(seconds = 300)
     JWT_AUTH_URL_RULE = "/auth/login"
     JWT_AUTH_HEADER_PREFIX = os.getenv("JWT_AUTH_HEADER_PREFIX", "FLASK")
+    PROPAGATE_EXCEPTIONS = True
 
 class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
