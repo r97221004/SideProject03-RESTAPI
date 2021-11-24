@@ -126,4 +126,22 @@ step105 python -m unitest discover
 step106 git add -A git commit -m "加入單元測試"
 -----------------------------------------------------------------------------------------------------------
 step107 第七次代碼重構, 在 tests 資料夾 新增 base.py檔, 在裡面新增 Base 類, 再讓大家繼承
-step105 python -m unitest discover
+step108 python -m unitest discover
+step109 git add -A git commit -m "第七次代碼重構"
+-----------------------------------------------------------------------------------------------------------
+step110 修改 config.py
+step111 pip install gunicorn, gunicorn 符合 WSGI 的 Server, 在 windows 目前無法運行,因為 No module named 'fcntl'
+step112 在 Hotel 底下建立 wsgi.py 的檔案, 並編輯
+step113 觀看 Heroku 的安裝與準備, 並註冊 Heroku
+step114 PATH="$PATH:/c/Program Files/Heroku/bin"
+step115 試試 heroku 指令
+step116 新增與編輯 Procfile
+step117 pip freeze > requirements.txt, 並加上 psycopg2==2.8.1, Heroku上的資料庫 PostgreSQL 需要
+step118 git add -A git commit -m "準備部屬"
+------------------------------------------------------------------------------------------------------------
+step118 heroku login
+step119 heroku create --buildpack heroku/python
+step200 heroku addons:create heroku-postgresql:hobby-dev
+step201 git push heroku master
+step202 heroku run python
+
