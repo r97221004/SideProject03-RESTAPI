@@ -116,17 +116,17 @@ step96 git add -A git commit -m "第六次代碼重構"
 -----------------------------------------------------------------------------------------------------------
 step97 新增 tests 的包, 並在裡面加入 __init__.py 檔
 step98 新增與編輯 test_user_list.py, 先完成 test_user_create() 方法
-step99 python -m unitest discover
+step99 python -m unittest discover
 step100 新增且編輯 test_login.py
 step101 回來 test_user_list.py, 完成 test_user_get() 方法
 step102 新增與編輯 test_user.py
-step103 python -m unitest discover
+step103 python -m unittest discover
 step104 新增且編輯 test_tweet.py
-step105 python -m unitest discover
+step105 python -m unittest discover
 step106 git add -A git commit -m "加入單元測試"
 -----------------------------------------------------------------------------------------------------------
 step107 第七次代碼重構, 在 tests 資料夾 新增 base.py檔, 在裡面新增 Base 類, 再讓大家繼承
-step108 python -m unitest discover
+step108 python -m unittest discover
 step109 git add -A git commit -m "第七次代碼重構"
 -----------------------------------------------------------------------------------------------------------
 step110 修改 config.py
