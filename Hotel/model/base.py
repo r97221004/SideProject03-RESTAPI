@@ -3,10 +3,10 @@ from Hotel import db
 
 class Base(db.Model):
 
-    __abstract__ = True # 這樣才不會被當成一個 table
+    __abstract__ = True  # 這樣才不會被當成一個 table
 
     def as_dict(self):
-        return { c.name:getattr(self, c.name) for c in self.__table__.columns}
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def add(self):
         db.session.add(self)

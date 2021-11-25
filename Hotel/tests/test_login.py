@@ -1,5 +1,5 @@
 import json
-from Hotel.tests.base import TestBase 
+from Hotel.tests.base import TestBase
 
 
 class TestLogin(TestBase):
@@ -8,34 +8,34 @@ class TestLogin(TestBase):
         url = "/users"
         res = self.client().post(
             url,
-            data = self.user_data
+            data=self.user_data
         )
         url = "/auth/login"
         res = self.client().post(
             url,
-            data = json.dumps({"username": "test", "password": "test123"}),
-            headers = {"Content-Type": "application/json"}
+            data=json.dumps({"username": "test", "password": "test123"}),
+            headers={"Content-Type": "application/json"}
         )
         self.assertEqual(res.status_code, 200)
-        res_data = json.loads(res.get_data(as_text = True))
+        res_data = json.loads(res.get_data(as_text=True))
         self.assertIn('access_token', res_data)
 
     def test_login_failed(self):
         url = "/users"
         res = self.client().post(
             url,
-            data = self.user_data
+            data=self.user_data
         )
         url = "/auth/login"
         res = self.client().post(
             url,
-            data = json.dumps({"username": "test", "password": "wrongpass"}),
-            headers = {"Content-Type": "application/json"}
+            data=json.dumps({"username": "test", "password": "wrongpass"}),
+            headers={"Content-Type": "application/json"}
         )
         self.assertEqual(res.status_code, 401)
-        res_data = json.loads(res.get_data(as_text = True))
+        res_data = json.loads(res.get_data(as_text=True))
         data = {
-            
+
             "description": "Invalid credentials",
             "error": "Bad Request",
             "status_code": 401
