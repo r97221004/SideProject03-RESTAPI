@@ -161,4 +161,9 @@ step210 pip install tox==3.8
 step211 新增 tox.ini
 step212 執行 tox (或是 tox -e pep8)
 step213 git add -A git commit -m "pep8檢測"
+-------------------------------------------------------------------------------
+step214 在 resource 資料夾新增 Home 資源, 並編輯
+step215 在 __init__.py 註冊 Home 資源
+step216 git add -A git commit -m "增加首頁簡介"
+-------------------------------------------------------------------------------
 

@@ -15,6 +15,7 @@ from Hotel.resource.user import User, UserList
 from Hotel.resource.style import StyleList
 from Hotel.resource.room import RoomStyleList, RoomList, Room
 from Hotel.resource.reservation import Reservation
+from Hotel.resource.home import Home
 from Hotel.config import app_config
 
 jwt = JWT(None, UserModel.authenticate, UserModel.identity)
@@ -37,6 +38,7 @@ def create_app(config_name="development"):
     api.add_resource(RoomStyleList, "/rooms/<string:stylename>")
     api.add_resource(Room, "/room/<string:roomname>")
     api.add_resource(Reservation, "/reservation/<string:username>")
+    api.add_resource(Home, "/")
 
     register_commands(app)
 

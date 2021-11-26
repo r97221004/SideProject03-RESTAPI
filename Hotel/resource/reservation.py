@@ -42,6 +42,8 @@ class Reservation(Resource):
 
         user = UserModel.get_by_username(username)
         rooms = RoomModel.get_by_user_id(user.id)
+        if not rooms:
+            return {"message": "You do not have reservations."}
         for room in rooms:
             room.user_id_now = None
             room.update()

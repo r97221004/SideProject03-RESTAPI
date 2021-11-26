@@ -8,7 +8,8 @@ class Config:
     JWT_EXPIRATION_DELTA = timedelta(seconds=300)
     JWT_AUTH_URL_RULE = "/auth/login"
     JWT_AUTH_HEADER_PREFIX = os.getenv("JWT_AUTH_HEADER_PREFIX", "FLASK")
-    PROPAGATE_EXCEPTIONS = True
+    PROPAGATE_EXCEPTIONS = True  # 部屬在 Heroku 後, 沒有使用 Token 會給訊息
+    RESTFUL_JSON = dict(ensure_ascii=False)  # 返回支持中文
 
 
 class TestingConfig(Config):
